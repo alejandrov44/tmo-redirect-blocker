@@ -1,0 +1,7 @@
+services:
+  tmo-redirect-blocker:
+    build: .
+    privileged: true
+    image: tmo-redirect-blocker
+    volumes:
+    - ./dist:/app/dist

@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "tmo-redirect-blocker",
+    "version": "1.0",
+    "description": "A Chromium extension built with Node.js to change the url of tmo viewer when redirects to an external page.",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "tabs", "webNavigation"
+    ],
+    "action": {
+        "default_icon": {
+            "48": "icons/icon.png"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"]
+        }
+    ],
+    "icons": {
+        "48": "icons/icon.png"
+    }
+}
