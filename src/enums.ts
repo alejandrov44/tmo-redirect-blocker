@@ -4,6 +4,7 @@ export enum WrongPages {
     comiendoconpablo = "comiendoconpablo",
     culturanimation = "culturanimation",
     cocinaandrea = "cocinaandrea",
+    recetasmaria = "recetasmaria",
 
     // Random urls that always appear in some mangas (you can add them to the enum to block this kind of mangas)
     // enginetoyou = "enginetoyou",
