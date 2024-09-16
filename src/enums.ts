@@ -1,14 +1,22 @@
 export enum WrongPages {
-    // Random urls that can appear in whatever manga
+    // Urls that appear in Seinen mangas
+    animationdraw = "animationdraw",
+    cyclingtomorrow = "cyclingtomorrow",
+    motorespassion = "motorespassion",
+    recetasdegina = "recetasdegina",
+    roskertech = "roskertech",
+    topamotor = "topamotor",
+    flavourecipes = "flavourecipes",
+    livesteching = "livesteching",
+
+    // Urls that appear in the rest of mangas
     toncycling = "toncycling",
     comiendoconpablo = "comiendoconpablo",
     culturanimation = "culturanimation",
     cocinaandrea = "cocinaandrea",
     recetasmaria = "recetasmaria",
+    nombresmolones = "nombresmolones",
 
-    // Random urls that always appear in some mangas (you can add them to the enum to block this kind of mangas)
-    // enginetoyou = "enginetoyou",
-    // animationdraw = "animationdraw",
-    // cyclingtomorrow = "cyclingtomorrow",
-    // motorespassion = "motorespassion",
+    // Urls that appear in all mangas
+    enginetoyou = "enginetoyou",
 }
