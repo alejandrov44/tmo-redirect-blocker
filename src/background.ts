@@ -7,6 +7,6 @@ chrome.runtime.onMessage.addListener((message, sender) => {
     const id = /^https:\/\/.*\/\w+\/(.*?)\/\w\w/.exec(url)![1];
     if (!sender.tab?.id) return;
     // Redirect the user to the correct visor url
-    chrome.tabs.update(sender.tab?.id, { url: `https://visortmo.com/viewer/${id}/cascade` });
+    chrome.tabs.update(sender.tab?.id, { url: `https://zonatmo.com/viewer/${id}/cascade` });
   }
 });

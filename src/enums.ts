@@ -16,6 +16,7 @@ export enum WrongPages {
     cocinaandrea = "cocinaandrea",
     recetasmaria = "recetasmaria",
     nombresmolones = "nombresmolones",
+    yottytech = "yottytech",
 
     // Urls that appear in all mangas
     enginetoyou = "enginetoyou",
