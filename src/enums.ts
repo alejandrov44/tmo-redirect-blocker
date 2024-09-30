@@ -8,6 +8,7 @@ export enum WrongPages {
     topamotor = "topamotor",
     flavourecipes = "flavourecipes",
     livesteching = "livesteching",
+    viajandocomida = "viajandocomida",
 
     // Urls that appear in the rest of mangas
     toncycling = "toncycling",
