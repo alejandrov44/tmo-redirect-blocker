@@ -26,5 +26,4 @@ export enum WrongPages {
 
     // Urls that appear in all mangas
     enginetoyou = "enginetoyou",
-    test = "test",
 }
