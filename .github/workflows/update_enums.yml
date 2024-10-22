@@ -1,0 +1,41 @@
+name: Update Enums
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      newEnumType:
+        description: "New enum type to add"
+        required: true
+        default: "NEW_TYPE"
+
+jobs:
+  update-enum:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Add New Type to Enums
+      env:
+        NEW_ENUM: ${{ inputs.newEnumType }}
+      run: npx ts-node ./src/scripts/update-enums.ts
+
+    - name: Commit changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add ./src/enums.ts
+        git commit -m "add fake url"
+        git push
