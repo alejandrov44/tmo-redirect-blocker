@@ -1,9 +1,6 @@
 name: Update Enums
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
     inputs:
       newEnumType:
@@ -30,7 +27,7 @@ jobs:
     - name: Add New Type to Enums
       env:
         NEW_ENUM: ${{ inputs.newEnumType }}
-      run: npx ts-node ./src/scripts/update-enums.ts
+      run: npx ts-node ./src/scripts/update_enums.ts
 
     - name: Commit changes
       run: |
