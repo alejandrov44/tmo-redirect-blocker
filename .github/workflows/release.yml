@@ -34,6 +34,33 @@ jobs:
     - name: Archive dist folder
       run: zip -r dist.zip dist/
 
+    - name: Delete Previous Release
+      uses: actions/github-script@v6
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        script: |
+          const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
+          const releases = await octokit.rest.repos.listReleases({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            per_page: 1,
+            page: 1
+          });
+
+          if (releases.data.length > 0) {
+            const lastRelease = releases.data[0];
+            await octokit.rest.repos.deleteRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              release_id: lastRelease.id
+            });
+
+            console.log(`Deleted release: ${lastRelease.tag_name}`);
+          } else {
+            console.log("No release to delete.");
+          }
+
     - name: Create GitHub Release
       id: create_release
       uses: actions/create-release@v1
