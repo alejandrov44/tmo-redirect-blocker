@@ -28,4 +28,5 @@ export enum WrongPages {
     enginetoyou = "enginetoyou",
     babynombres = "babynombres",
     sombracycling = "sombracycling",
+    tannyfashion = "tannyfashion",
 }
