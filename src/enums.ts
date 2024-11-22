@@ -30,4 +30,5 @@ export enum WrongPages {
     sombracycling = "sombracycling",
     tannyfashion = "tannyfashion",
     motoratrium = "motoratrium",
+    ibigcycling = "ibigcycling",
 }
