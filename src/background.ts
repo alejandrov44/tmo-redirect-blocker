@@ -1,5 +1,8 @@
 import { load } from "cheerio";
 
+// const blockedTrackingUrl = "https://sauthooptoo.net/";
+// const blockedAdsUrl = "https://wa.apostilprinks.com/";
+
 chrome.runtime.onMessage.addListener((message, sender) => {
   if (message.html) {
     const label = "a[title=\"Paginada\"]";

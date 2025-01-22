@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "https://wa.apostilprinks.com/",
+      "resourceTypes": ["main_frame", "script", "xmlhttprequest"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "https://sauthooptoo.net/",
+      "resourceTypes": ["main_frame", "script", "xmlhttprequest"]
+    }
+  }
+]
