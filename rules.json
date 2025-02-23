@@ -31,5 +31,16 @@
       "urlFilter": "https://chaupheebe.net/",
       "resourceTypes": ["main_frame", "script", "xmlhttprequest"]
     }
+  },
+  {
+    "id": 4,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": ".net/wrr",
+      "resourceTypes": ["main_frame", "script", "xmlhttprequest"]
+    }
   }
 ]
