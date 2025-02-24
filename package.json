@@ -4,7 +4,7 @@
   "description": "A Chromium extension built with Node.js to change the url of tmo viewer when redirects to an external page.",
   "main": "index.ts",
   "scripts": {
-    "generate_extension": "npx tsc webpack.config.ts && npx webpack --config webpack.config.js"
+    "generate_extension": "npx webpack"
   },
   "author": "alejandrov44",
   "license": "ISC",
