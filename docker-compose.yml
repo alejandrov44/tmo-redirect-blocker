@@ -4,4 +4,4 @@ services:
     privileged: true
     image: tmo-redirect-blocker
     volumes:
-    - ./dist:/app/dist
+      - ./dist:/app/dist

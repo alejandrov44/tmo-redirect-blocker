@@ -71,11 +71,11 @@ npm run generate_extension
 ### Resultado 🎉
 
 Si hiciste todo correctamente, deberías ver la extensión instalada en tu navegador.
- 
+
 ## ¡Dale una estrella al repositorio! ⭐
 
 Si pude ayudarte, por favor dale una estrella al repositorio. Esto me ayudará en futuros trabajos.
 
 ## Contáctame:
- 
+
 [Discord](https://discord.gg/yGMknyc9)

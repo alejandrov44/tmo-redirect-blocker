@@ -4,17 +4,15 @@
   "description": "A Chromium extension built with Node.js to change the url of tmo viewer when redirects to an external page.",
   "main": "index.ts",
   "scripts": {
-    "generate_extension": "npx webpack"
+    "generate_extension": "npx tsc webpack.config.ts && npx webpack --config webpack.config.js"
   },
   "author": "alejandrov44",
   "license": "ISC",
   "devDependencies": {
+    "@alejandrov44/eslint-config": "^0.3.2",
     "@types/chrome": "^0.0.270",
     "@types/node": "^22.5.0",
-    "@typescript-eslint/eslint-plugin": "^8.3.0",
-    "@typescript-eslint/parser": "^8.3.0",
     "copy-webpack-plugin": "^12.0.2",
-    "eslint": "^9.9.1",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",

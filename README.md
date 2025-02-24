@@ -26,7 +26,6 @@ Or
 
 2b- Ensure you have [Node.js](https://nodejs.org/en/download/) installed on your machine.
 
-
 ## How to generate the uncompressed extension
 
 ### Generate the extension with docker
@@ -61,7 +60,6 @@ npm run generate_extension
 
 3- Wait until you can see the `dist` folder on the root of the project, this is the extension you want to install con Chromium browsers.
 
-
 ## Add the extension to Chromium browsers
 
 1- Go to your browser and search for `chrome://extensions/`.
@@ -71,13 +69,13 @@ npm run generate_extension
 3- Click on `Load unpacked` and select the `dist` folder generated on the root of the project.
 
 ### Result 🎉
- 
+
 If you did everything correctly, you should see the extension installed on your browser.
- 
+
 ## Star the repo!!! ⭐
- 
+
 If I was able to help you, please star the repository. This will help me in my further work.
 
 ## Contact Me:
- 
+
 [Discord](https://discord.gg/yGMknyc9)

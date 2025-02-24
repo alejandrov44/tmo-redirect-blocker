@@ -2,9 +2,9 @@ name: Create Release on Merge to Main
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
@@ -15,69 +15,69 @@ jobs:
         node-version: [20]
 
     steps:
-    - run: echo "🎉 The job was triggered by a ${{ github.event_name }} event. With inputs ${{ toJson(inputs) }}."
+      - run: echo "🎉 The job was triggered by a ${{ github.event_name }} event. With inputs ${{ toJson(inputs) }}."
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Checkout tmo-redirect-blocker
-      uses: actions/checkout@v4
+      - name: Checkout tmo-redirect-blocker
+        uses: actions/checkout@v4
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install --force
 
-    - name: Run generate_extension script
-      run: npm run generate_extension
+      - name: Run generate_extension script
+        run: npm run generate_extension
 
-    - name: Archive dist folder
-      run: zip -r dist.zip dist/
+      - name: Archive dist folder
+        run: zip -r dist.zip dist/
 
-    - name: Delete Previous Release
-      uses: actions/github-script@v7
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        script: |
-          const releases = await github.rest.repos.listReleases({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            per_page: 1,
-            page: 1
-          });
-
-          if (releases.data.length > 0) {
-            const lastRelease = releases.data[0];
-            await github.rest.repos.deleteRelease({
+      - name: Delete Previous Release
+        uses: actions/github-script@v7
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          script: |
+            const releases = await github.rest.repos.listReleases({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              release_id: lastRelease.id
+              per_page: 1,
+              page: 1
             });
 
-            console.log(`Deleted release: ${lastRelease.tag_name}`);
-          } else {
-            console.log("No release to delete.");
-          }
+            if (releases.data.length > 0) {
+              const lastRelease = releases.data[0];
+              await github.rest.repos.deleteRelease({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                release_id: lastRelease.id
+              });
 
-    - name: Create GitHub Release
-      id: create_release
-      uses: actions/create-release@v1
-      with:
-        tag_name: v${{ github.run_number }}
-        release_name: Lastest Release
-        body_path: ./CHANGELOG.md
-        draft: false
-        prerelease: false
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              console.log(`Deleted release: ${lastRelease.tag_name}`);
+            } else {
+              console.log("No release to delete.");
+            }
 
-    - name: Upload dist.zip to Release
-      uses: actions/upload-release-asset@v1
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./dist.zip
-        asset_name: dist.zip
-        asset_content_type: application/zip
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: v${{ github.run_number }}
+          release_name: Lastest Release
+          body_path: ./CHANGELOG.md
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload dist.zip to Release
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./dist.zip
+          asset_name: dist.zip
+          asset_content_type: application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
