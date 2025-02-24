@@ -10,6 +10,7 @@ export default {
   plugins: [
     new CopyWebpackPlugin({
       patterns: [
+        { from: "rules.json", to: "rules.json" },
         { from: "manifest.json", to: "manifest.json" },
         { from: "src/icons", to: "icons" },
       ],

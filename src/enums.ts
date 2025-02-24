@@ -24,6 +24,11 @@ export enum WrongPages {
   techobras = "techobras",
   browermotor = "browermotor",
 
-  // Urls that appear in all mangas
+  // New automatic urls
   enginetoyou = "enginetoyou",
+  babynombres = "babynombres",
+  sombracycling = "sombracycling",
+  tannyfashion = "tannyfashion",
+  motoratrium = "motoratrium",
+  ibigcycling = "ibigcycling",
 }
